@@ -1,0 +1,27 @@
+body {
+    background-color: #e2e2e2;
+}
+.main-banner {
+    background: url("/assets/img/main-banner3.jpg") no-repeat;
+    height:75vh;
+    background-size: cover;
+}
+
+.search-bar {
+    margin-top: 40vh;
+}
+
+.search-bar-text {
+    /* The sum of the properties below must be 100% */
+    padding-left: 2% !important;
+    width: 98% !important;
+}
+
+.align-with-input {
+    margin-top: 15px;
+    height: 3rem;
+}
+
+.input-field>input {
+    border-radius: 2px !important;
+}
