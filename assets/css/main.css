@@ -1,8 +1,8 @@
 body {
-    background-color: #e2e2e2;
+    background-color: #efefef;
 }
 .main-banner {
-    background: url("/assets/img/main-banner3.jpg") no-repeat;
+    background: url("/assets/img/main-banner3-darken.jpg") no-repeat;
     height:75vh;
     background-size: cover;
 }
@@ -15,6 +15,18 @@ body {
     /* The sum of the properties below must be 100% */
     padding-left: 2% !important;
     width: 98% !important;
+}
+
+/* Front page searchbar underline */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #37474f !important;
+    box-shadow: 0 1px 0 0 #37474f !important;
+}
+
+/* Front page email collector input underline */
+.email-collector.input-field input[type=text]:focus {
+    border-bottom: 1px solid #e51c23 !important;
+    box-shadow: 0 1px 0 0 #e51c23 !important;
 }
 
 .align-with-input {
