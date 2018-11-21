@@ -52,7 +52,7 @@ function loginScript($loc) {
             
                         req.onreadystatechange = function () {
                             if (this.readyState == 4 && this.status == 200) {
-                                if (req.responseText = "true") {
+                                if (req.responseText == "true") {
                                     window.location = "http://localhost/";
                                 } else {
                                     M.toast({html: req.responseText});
