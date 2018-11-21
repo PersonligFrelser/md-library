@@ -1,0 +1,36 @@
+body {
+    background-size: cover;
+    background: url("https://suite.xovi.net/img/login-bg.jpg") no-repeat center;
+}
+
+.login-box {
+    margin-top: 200px;
+}
+
+.login-button {
+    width: 100%;
+    font-weight: 600;
+}
+
+.register-section p a {
+    margin-right: 0 !important;
+    text-transform: none !important;
+}
+
+.divider {
+    width: calc(100% + 48px) !important;
+    margin-left: -24px;
+}
+
+.brand-logo {
+    font-size: 28px;
+}
+
+button[name="submit"]  p {
+    margin-left: 2rem !important;
+}
+
+p#reg-error {
+    border: 2px solid red;
+    border-radius: 2px;
+}
