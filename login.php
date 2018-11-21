@@ -37,6 +37,11 @@
 
 function loginScript($loc) {
     return <<<JS
+            document.getElementById("pw_input").onkeypress = function (evt) {
+                if (evt.key == "Enter") {
+                    login();
+                }
+            };
             function login() {
                     if (document.getElementById("user_input").value == "" || document.getElementById("pw_input").value == "") {
                         M.toast({html: "Please enter all fields"});
