@@ -143,8 +143,8 @@
         </main>
 
         <script src="/assets/js/wNumb.js" defer></script>
-        <script src="/assets/js/ext/md-nouislider.js" defer></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.minjs" defer></script>
+        <script src="https://materializecss.com/extras/noUiSlider/nouislider.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
         <script src="/assets/js/main.js" defer></script>
         <script src="/assets/js/books.js" defer></script>
     </body>
