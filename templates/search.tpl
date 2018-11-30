@@ -18,7 +18,7 @@
                 <!-- Left spec section -->
                 <section class="col s3">
                     <div class="card-panel center">
-                        <span style="font-size: 20px">{TOTAL_BOOKS_FOUND}</span>
+                        <span id="total-books" style="font-size: 20px"></span>
                     </div>
                     <!-- Language checkboxes -->
                     <ul class="collection with-header">

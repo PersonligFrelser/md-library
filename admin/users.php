@@ -17,22 +17,22 @@
  * @license   http://www.apache.org/licenses/LICENSE-2.0
  */
 
-require_once('../global.php');
-header("Content-Type: application/json");
+require_once("../global.php");
+use src\tpl\Template;
 
-if (empty($_REQUEST['q'])) {
-    $queryString = "SELECT `isbn`, `title`, `img`, `desc` FROM `book`";
-    $stmt = $con->prepare($queryString);
-} else {
-    $queryString = "SELECT `isbn`, `title`, `img`, `desc` FROM `book` WHERE `title` LIKE CONCAT('%', ?, '%')";
-    $stmt = $con->prepare($queryString);
-    $stmt->bind_param("s", $query);
-    $query = $con->real_escape_string($_REQUEST['q']);
+if (!isLoggedIn()) {
+    header('Location: /');
 }
 
-if ($stmt->execute()) {
-    echo json_encode($stmt->get_result()->fetch_all(MYSQLI_ASSOC));
-} else {
-    // Query failed
-    echo "[]";
-}
+$user = unserialize($_SESSION['account']);
+
+$main = new Template(ADM_TPL_DIR . "main.tpl");
+$main->assign('nav', Template::showNav($user));
+$main->assign('user_name', $user->getUsername());
+$main->assign('user_role', 'Administrator');
+$main->assign('user_avatar', $user->getAvatar());
+$main->assign("script", "<script src='../assets/js/users.js'></script>");
+
+$tpl = new Template(ADM_TPL_DIR . "users.tpl");
+$main->assign("content", $tpl->generateDocument());
+$main->view();

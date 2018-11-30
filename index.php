@@ -22,22 +22,12 @@
     require_once('./global.php');
 
     $tpl = new Template(TPL_DIR . 'index.tpl');
-
-    if (isset($_SESSION['account'])) {
-        $user = unserialize($_SESSION['account']);
-        $tpl->assign('client_bar', showUserBar($user->getUsername(), $user->getAvatar()));
-        $tpl->assign('profile_dd', showUserBarDropdown());
-    } else {
-        $tpl->assign('client_bar', showGuestBar());
-        $tpl->assign('profile_dd', '');
-    }
-
-    $tpl->assign('title', 'Library');
+    $tpl->assign('nav', Template::showNav((isset($_SESSION['account'])) ? unserialize($_SESSION['account']) : null));
     $tpl->assign('search_path', '/search.php');
     $tpl->assign('search_placeholder', 'Harry Potter and the Dwarfs, etc...');
     $tpl->assign('email_col_placeholder', 'john@example.com');
-    $tpl->assign('subscribe_script', printSubscribeFunction(Header::request('subscribe')));
     $tpl->assign('footer', file_get_contents(TPL_DIR . 'footer.tpl'));
+
 
     $tpl->view();
 
@@ -69,33 +59,5 @@ HTML;
     function showGuestBar() {
         return <<<HTML
             <li class="materialize-red"><a href="./login.php">Register / Login</a></li>
-HTML;
-    }
-
-    function printSubscribeFunction($loc) {
-        return <<<HTML
-                <script defer>
-                    function subscribeNewsletter() {
-                        if (document.getElementById("email-input").value == "") {
-                            M.toast({html: "Please enter an email address"});
-                        } else {
-                            if (window.XMLHttpRequest) {
-                                req = new XMLHttpRequest();
-                                }
-                        
-                            req.onreadystatechange = function () {
-                                if (this.readyState == 4 && this.status == 200) {
-                                    M.toast({html: req.responseText});
-                                }
-                            };
-                        
-                            let email = document.getElementById("email-input").value;
-                            var payload = "email=" + email;
-                            req.open("POST", "{$loc}", true);
-                            req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-                            req.send(payload);
-                        }
-                    }
-            </script>
 HTML;
     }

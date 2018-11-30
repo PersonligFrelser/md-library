@@ -21,15 +21,15 @@ use src\tpl\Template;
 use src\domain\Book;
 require_once('global.php');
 
+$user = unserialize($_SESSION['account']);
+
 $tpl = new Template(TPL_DIR . 'search.tpl');
-$tpl->assign('nav', file_get_contents(TPL_DIR . 'nav.tpl'));
+$tpl->assign('nav', Template::showNav($user));
 $totalBooksFound = 0;
 $tpl->assign('total_books_found', $totalBooksFound . (($totalBooksFound > 1 || $totalBooksFound == 0) ? ' Books Found' : ' Book Found'));
 $tpl->assign('books', null);
 $tpl->view();
 
 if (isset($_REQUEST['q'])) {
-    <<<HTML
-        getBooks({$_REQUEST['q']})
-HTML;
+    echo "<script>getBooks({$_REQUEST['q']})</script>";
 }

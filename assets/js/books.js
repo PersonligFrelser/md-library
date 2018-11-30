@@ -5,18 +5,11 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         getBooks();
     }
-    document.getElementById("search_input").onkeypress = function (evt) {
-        if (evt.key === "Backspace") {
-            if (this.value.length > 0) {
-                getBooks(this.value.substr(0, this.value.length - 1));
-            } else {
-                getBooks();
-            }
-        } else {
-            getBooks(this.value + evt.key);
-        }
+
+    document.getElementById("search_input").onkeyup = function (evt) {
+        getBooks(this.value);
     };
-})
+});
 
 function getBooks(query) {
     query = query || "";
@@ -41,7 +34,10 @@ function showBooks(array) {
     array.forEach(function (el) {
         body += formatBook(el)
     });
+    var totalBooks = array.length;
     document.getElementById("book-list").innerHTML = body;
+    document.getElementById("total-books").innerText = totalBooks.toString() + " " + ((totalBooks == 1) ? 'Book Found' : "Books Found");
+
 }
 
 function formatBook(book) {

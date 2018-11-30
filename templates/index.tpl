@@ -12,24 +12,7 @@
         <!-- Banner -->
         <header class="main-banner darken-1">
             <!-- Navigation -->
-            <div class="navbar-fixed">
-                <nav class="transparent z-depth-0">
-                    <div class="container nav-wrapper">
-                        <div class="col s12">
-                            <a href="/" class="brand-logo">{TITLE}</a>
-                            <ul class="right hide-on-med-and-down" id="nav-mobile">
-                                <li><a href="index.tpl">News</a></li>
-                                <li><a href="index.tpl">Events</a></li>
-                                <li><a href="index.tpl">About Us</a></li>
-                                {CLIENT_BAR}
-                            </ul>
-                            {PROFILE_DD}
-                        </div>
-                    </div>
-                    <!-- Navigation underline -->
-                    <div class="divider materialize-red"></div>
-                </nav>
-            </div>
+            {NAV}
             <!-- Search bar -->
             <section class="section z-depth-2 search-bar center materialize-red">
                 <div class="container white-text">
@@ -85,21 +68,21 @@
             <section class="section center grey darken-4">
                 <div class="container">
                     <div class="row">
-                        <div class="col s12">
+                        <div class="col s12" style="margin-bottom:15px !important;">
                             <h4 class="title white-text">Electronic Mail</h4>
                             <h6 class="left-align white-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue non nisl quis eleifend. Aenean imperdiet pellentesque ornare. Curabitur ac lorem tincidunt eros mollis venenatis.
                                 Mauris dictum metus vel ex ornare volutpat. Ut finibus varius posuere. Etiam dictum ut ipsum faucibus congue. Phasellus porttitor tincidunt risus, vitae dapibus lacus. Pellentesque.</h6>
                         </div>
-                        <div class="col s10">
-                            <form class="input-field email-collector">
-                                <input id="email-input" type="text" class="white grey-text search-bar-text" placeholder="{EMAIL_COL_PLACEHOLDER}">
-                            </form>
-                        </div>
-                        <div class="col s2">
-                            <button class="btn waves-effect waves-light align-with-input materialize-red" onclick="subscribeNewsletter()" type="submit" name="action">Subscribe
-                                <i class="material-icons right">send</i>
-                            </button>
-                        </div>
+                        <section>
+                            <div class="col s10 email-collector">
+                                <input id="email-input" type="text" class="white grey-text search-bar-text input-field email-collector" placeholder="{EMAIL_COL_PLACEHOLDER}">
+                            </div>
+                            <div class="col s2">
+                                <button class="btn waves-effect waves-light align-with-input materialize-red" onclick="subscribeNewsletter()" type="submit" name="action">Subscribe
+                                    <i class="material-icons right">send</i>
+                                </button>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </section>
@@ -185,6 +168,7 @@
 
         <!-- JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="../assets/js/subscribe.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 M.Carousel.init(document.querySelectorAll('.carousel'), {
@@ -194,8 +178,10 @@
                     hover: true,
                     constrainWidth: false
                 });
+                var nav = document.getElementsByClassName("black")[0];
+                nav.classList.remove("black");
+                nav.classList.add("transparent");
             });
         </script>
-        {SUBSCRIBE_SCRIPT}
     </body>
 </html>

@@ -17,6 +17,8 @@
  *  @license   http://www.apache.org/licenses/LICENSE-2.0
  */
 
+error_reporting(E_ALL);
+
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -26,5 +28,12 @@ spl_autoload_register(function ($class) {
 });
 
 define('TPL_DIR', './templates/');
+define('ADM_TPL_DIR', '../admin/tpl/');
 
 $con = new MySQLi('localhost', 'root', '', 'library');
+
+$GLOBALS['con'] = new MySQLi('localhost', 'root', '', 'library');
+
+function isLoggedIn() : bool {
+    return isset($_SESSION['account']);
+}

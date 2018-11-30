@@ -1,0 +1,58 @@
+.brand-logo {
+    margin-left: 50px !important;
+}
+
+.collapsible-header * {
+    color: #444;
+}
+
+.collapsible > li > a {
+    padding: 0 !important;
+}
+
+.collapsible > a, span {
+    font-size: 15px !important;
+}
+
+.collection {
+    border: 0 !important;
+    margin: 0 0 10px 0 !important;
+    border-radius: 0;
+}
+
+.avatar {
+    height: 40px !important;
+    width: 40px !important;
+}
+
+.username-row {
+    margin-bottom: 0 !important;
+}
+
+.user-panel {
+    background: url("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F9d%2F4d%2F07%2F9d4d07ca7d591bb3cd3d9f4df2624bbf.jpg&f=1") no-repeat center;
+    background-size: cover;
+    min-height: 100px;
+}
+
+.user-panel p, .user-panel h6 {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.user-panel > .container {
+    margin: 20px auto 0 25px !important;
+}
+
+.user-panel > .container > .row {
+    margin: 20px auto 0 auto !important;
+}
+
+.user-panel img:not(.avatar) {
+    height: 50px !important;
+}
+
+#content {
+    margin: 15px 0 0 315px !important;
+    width: calc(100vw - 330px) !important;
+}

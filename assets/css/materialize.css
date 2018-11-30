@@ -3389,6 +3389,30 @@ span.badge.new:after {
   content: " new";
 }
 
+span.badge.users {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #e51c23;
+  border-radius: 2px;
+}
+
+span.badge.users:after {
+  content: " user(s)";
+}
+
+span.badge.books {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #e51c23;
+  border-radius: 2px;
+}
+
+span.badge.books:after {
+  content: " book(s)";
+}
+
 span.badge[data-badge-caption]::after {
   content: " " attr(data-badge-caption);
 }

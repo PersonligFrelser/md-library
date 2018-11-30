@@ -1,0 +1,12 @@
+RewriteEngine on
+
+# Restrict direct access
+RedirectMatch 403 ^/templates/?$
+RedirectMatch 403 ^/requests/?$
+RedirectMatch 403 ^/assets/?$
+RedirectMatch 403 ^/config/?$
+RedirectMatch 403 ^/src/?$
+
+# Prettier url address
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+/)$ $1.php [NC,L]

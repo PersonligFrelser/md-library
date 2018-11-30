@@ -35,7 +35,6 @@ body {
 }
 
 .align-with-input {
-    margin-top: 15px;
     height: 3rem;
 }
 
@@ -89,4 +88,8 @@ ul #profile-dropdown {
     width: 32px !important;
     height: 32px !important;
     margin: -8px auto !important;
+}
+
+#search_input {
+    margin-left: 0 !important;
 }

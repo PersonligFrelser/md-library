@@ -4,6 +4,12 @@ M.Collapsible.init(document.querySelector('.collapsible'), {});
 // Init sidenav
 M.Sidenav.init(document.querySelector('.sidenav'), {});
 
+// Init profile dropdown
+M.Dropdown.init(document.querySelectorAll('.dropdown-trigger'), {
+    hover: true,
+    constrainWidth: false
+});
+
 // Release year slider
 noUiSlider.create(document.getElementById('rel-year-range'), {
     start: [1990, 2010],
